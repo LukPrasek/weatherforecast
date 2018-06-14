@@ -17,7 +17,6 @@
 *.ipr
 /.idea/*
 target/
-*.iml/
 *.properties
 
 ### NetBeans ###
