@@ -17,14 +17,14 @@ public class MainController {
     }
     @GetMapping("/")
     @ResponseBody
-    public int index() {
-        return weatherService.makeCall("München", "de").getGlobalStat().getTempStats().getTemp();
+    public String index() {
+        return weatherService.makeCall("Warszawa", "pl").getGlobalStatList().toString();
     }
 
     @GetMapping("/test")
     @ResponseBody
     public String indexTest() {
-        return weatherService.makeTestCall("München", "de");
+        return weatherService.makeTestCall("München", "de").toString();
     }
 
 }
