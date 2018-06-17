@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather forecast</title>
+</head>
+<body>
+<!--<h1 th:text="'Prognoza pogody na 5 dni dla '+${city}"></h1>-->
+<div style="text-align: center">
+
+    <form method="post" action="/">
+       Miasto <input th:name="city" placeholder="City">
+        Kod państwa<input th:name="country" placeholder="Country">
+        <input type="submit" value="submit">
+    </form>
+    <h2 th:if="${weather!=null}" th:text="'Prognoza pogody na 5 dni dla '+${city}"></h2>
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>Temp</th>
+            <th>Pressure</th>
+            <th>Humidity</th>
+
+        </tr>
+        <th:block th:each="item : ${weather}">
+        <th:block th:each="time: ${time}">
+            <tr>
+                <td th:text="${time.getDate()}"></td>
+                <td th:text="${item.getTemp()}"></td>
+                <td th:text="${item.getPressure()}"></td>
+                <td th:text="${item.getHumidity()}"></td>
+                <!--<td th:text="${item.getMainWeather().getTemp()}" th:style="'color: '+${weather.getMainWeather().getTemp() > 24 ? 'red': 'blue'}">...</td>-->
+            </tr>
+            <tr>
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

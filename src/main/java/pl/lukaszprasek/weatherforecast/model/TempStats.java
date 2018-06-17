@@ -1,7 +1,10 @@
 package pl.lukaszprasek.weatherforecast.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 @Data
 public class TempStats {
@@ -13,4 +16,10 @@ public class TempStats {
 
     @JsonProperty("humidity")
     private int humidity;
+
+    private LocalDateTime date;
+
+    public TempStats() {
+        date = new GlobalStat().getDate();
+    }
 }

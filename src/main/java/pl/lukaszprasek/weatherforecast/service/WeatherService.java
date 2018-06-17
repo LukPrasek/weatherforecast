@@ -1,14 +1,13 @@
 package pl.lukaszprasek.weatherforecast.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.lukaszprasek.weatherforecast.model.WeatherModel;
+import pl.lukaszprasek.weatherforecast.model.WeatherObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +18,7 @@ public class WeatherService {
 
     @org.springframework.beans.factory.annotation.Value(("${openweathermap.api_key}"))
     private String apiKey;
-
+    private List<WeatherObject> weatherObjects;
     private RestTemplate restTemplate;
 
     public WeatherService() {
@@ -40,8 +39,5 @@ public class WeatherService {
         return restTemplate.getForObject("http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "," + country + "&appid=" + apiKey, WeatherModel.class);
     }
 
-    public String makeTestCall(String cityName, String country) {
-        return restTemplate.getForObject("http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "," + country + "&appid=" + apiKey, String.class);
-    }
 
 }
