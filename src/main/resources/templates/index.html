@@ -9,22 +9,21 @@
     <form method="post" action="/">
         City <input th:name="city" placeholder="City">
         National code <input th:name="country" placeholder="Country code, ex pl">
-        </bk>
         <input type="submit" value="submit">
     </form>
-    <h2 th:if="${weather!=null}" th:text="'Weather forecast for 5 days for '+${city}"></h2>
+    <h2 th:if="${weather!=null}" th:text="'Weather forecast for 5 days for '+${#strings.capitalize(city)}"></h2>
     <table>
         <tr>
             <th>Time</th>
-            <th>Temperature</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
+            <th>Temperature[C]</th>
+            <th>Pressure[hPa]</th>
+            <th>Humidity[%]</th>
 
         </tr>
         <th:block th:each="item : ${weather}">
             <th:block th:each="time: ${time}">
                 <tr>
-                    <td th:text="${time.getDate()}"></td>
+                    <td th:text="${time}"></td>
                     <td th:text="${item.getTemp()-272}"></td>
                     <td th:text="${item.getPressure()}"></td>
                     <td th:text="${item.getHumidity()}"></td>

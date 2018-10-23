@@ -29,7 +29,6 @@ public class WeatherService {
         converter.setSupportedMediaTypes(Arrays.asList(new MediaType[]{MediaType.ALL}));
         messageConverters.add(converter);
         restTemplate.setMessageConverters(messageConverters);
-
         return restTemplate.getForObject("http://api.openweathermap.org/data/2.5/forecast?q="
                 + cityName + "," + country + "&appid=" + apiKey, WeatherModel.class);
     }

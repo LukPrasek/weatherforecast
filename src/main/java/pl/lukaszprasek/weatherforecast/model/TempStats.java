@@ -19,6 +19,6 @@ public class TempStats {
     private LocalDateTime date;
 
     public TempStats() {
-        date = new GlobalStat().getDate();
+        date= new GlobalStat().getDate();
     }
 }
