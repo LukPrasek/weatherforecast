@@ -7,8 +7,6 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.lukaszprasek.weatherforecast.model.WeatherModel;
-import pl.lukaszprasek.weatherforecast.model.WeatherObject;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +16,6 @@ public class WeatherService {
 
     @org.springframework.beans.factory.annotation.Value(("${openweathermap.api_key}"))
     private String apiKey;
-    private List<WeatherObject> weatherObjects;
     private RestTemplate restTemplate;
 
     public WeatherService() {
@@ -28,15 +25,13 @@ public class WeatherService {
 
     public WeatherModel makeCall(String cityName, String country) {
         List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-        //Add the Jackson Message converter
-        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-        // Note: here we are making this converter to process any kind of response,
-        // not only application/*json, which is the default behaviour
+         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
         converter.setSupportedMediaTypes(Arrays.asList(new MediaType[]{MediaType.ALL}));
         messageConverters.add(converter);
         restTemplate.setMessageConverters(messageConverters);
 
-        return restTemplate.getForObject("http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "," + country + "&appid=" + apiKey, WeatherModel.class);
+        return restTemplate.getForObject("http://api.openweathermap.org/data/2.5/forecast?q="
+                + cityName + "," + country + "&appid=" + apiKey, WeatherModel.class);
     }
 
 

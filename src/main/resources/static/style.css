@@ -1,0 +1,70 @@
+/*body #body-index{*/
+body {
+    /*padding: 1px;*/
+    display: inline-block;
+    background-color: lightskyblue;
+    font-family: 'Lora', 'Times New Roman', serif;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    /*background-image: url("DarkSunrise.jpg");*/
+    margin: 0;
+}
+
+body h2 {
+    position: relative;
+    margin-top: 0px;
+    display: inline-block;
+    padding-bottom: 1em;
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    border-bottom-style: solid;
+    border-color: white;
+    padding-top: 20px ;
+}
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 80%;
+}
+
+form {
+    display: inline-block;
+    margin-top: 0px;
+    color: white;
+    position: relative;
+    width: 100%;
+    padding-top: 35px;
+    height: 100px;
+    background-image: url("DarkSunrise.jpg");
+    margin-left: 0;
+}
+table ,th, td {
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 0px;
+}
+th, td {
+    width: 25%;
+}
+input[type=submit] {
+    display: block;
+    margin-left: 47%;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    border: solid white;
+
+}
+
+
+
+
+

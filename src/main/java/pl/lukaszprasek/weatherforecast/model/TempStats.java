@@ -1,6 +1,5 @@
 package pl.lukaszprasek.weatherforecast.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 

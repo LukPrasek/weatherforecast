@@ -9,7 +9,6 @@ import java.util.List;
 @Data
 public class WeatherModel {
     @JsonProperty("list")
-   // private GlobalStat globalStat;
     private List<GlobalStat> globalStatList;
 
     public WeatherModel() {
